@@ -6,6 +6,7 @@ import sys
 from collections import deque
 from PIL import ImageGrab
 import numpy as np
+import json
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
@@ -15,6 +16,9 @@ BBOX = (0,104,0+500, 104+280)
 class Game:
        def __init__(self, bbox):
               self.bbox = bbox
+
+              with open('species.json', 'r') as file:
+                     species = json.load(file)
 
        #move only defined as left, right, up, down, or select
        def play_step(self, move):
@@ -35,7 +39,9 @@ class Agent:
 
        def get_state(self):
 
-              image = ImageGrab.grab(bbox=self.bbox)
+              BBOX = (0,104,0+500, 104+280)
+
+              image = ImageGrab.grab(bbox=bbox)
               image = image.convert("RGB")
               image.save("output.png")
 

@@ -1,3 +1,4 @@
+/** from pokerogue source data  **/
 export enum Species {
   /**{@link https://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pokémon) | Source} */
   BULBASAUR = 1,
